@@ -15,20 +15,20 @@ Vagrant.configure("2") do |config|
       #-D enable debug logging
       #-A set master url
       #-M install master
-        salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200 -M"
-        salt.master_config = "master.conf"
-        salt.colorize = true
-      end
+      salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200 -M"
+      salt.master_config = "master.conf"
+      salt.colorize = true
     end
+  end
 
-    config.vm.define "minion-01" do |box|
-      box.vm.box = "ubuntu/trusty64"
-      box.vm.hostname = "minion-01"
-      box.vm.network :private_network, ip: "172.17.0.202", :netmask => "255.255.0.0"
-      box.vm.provision :salt do |salt|
-        salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200"
-        salt.colorize = true
-      end
+  config.vm.define "minion-01" do |box|
+    box.vm.box = "ubuntu/trusty64"
+    box.vm.hostname = "minion-01"
+    box.vm.network :private_network, ip: "172.17.0.202", :netmask => "255.255.0.0"
+    box.vm.provision :salt do |salt|
+      salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200"
+      salt.colorize = true
+    end
   end
 
   config.vm.define "minion-02" do |box|
