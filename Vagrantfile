@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "minion-01" do |box|
+  config.vm.define "minion1" do |box|
     box.vm.box = "ubuntu/trusty64"
     box.vm.hostname = "minion1"
     box.vm.network :private_network, ip: "172.17.0.202", :netmask => "255.255.0.0"
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define "minion-02" do |box|
+  config.vm.define "minion2" do |box|
     box.vm.box = "ubuntu/trusty64"
     box.vm.hostname = "minion2"
     box.vm.network :private_network, ip: "172.17.0.203", :netmask => "255.255.0.0"
