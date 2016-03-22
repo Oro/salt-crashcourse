@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
     box.vm.network :private_network, ip: "172.17.0.202", :netmask => "255.255.0.0"
     box.vm.provision :salt do |salt|
       salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200"
+      salt.minion_config = "minion.conf"
       salt.colorize = true
     end
   end
@@ -37,6 +38,7 @@ Vagrant.configure("2") do |config|
     box.vm.network :private_network, ip: "172.17.0.203", :netmask => "255.255.0.0"
     box.vm.provision :salt do |salt|
       salt.bootstrap_options = "-F -c /tmp -P -D -A 172.17.0.200"
+      salt.minion_config = "minion.conf"
       salt.colorize = true
     end
   end
